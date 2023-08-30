@@ -62,7 +62,7 @@ $re_kurir = $re_pembeli1[1];
 
                 <div class="input-group">
                     <!-- <textarea style="font-size: 9px;" name="alamat" type="text" class="form-control" id="pastealamat" ><?= $re_alamat ?></textarea> -->
-                    <input type="text" name="alamat" required placeholder="Alamat" value="<?= $re_alamat ?>"class="form-control text-center">
+                    <input type="text" name="alamat"  required placeholder="Alamat" value="<?= $re_alamat ?>"class="form-control text-center">
                     <button class="btn btn-sm border" id="pastealamat">Paste</button>
                 </div>
 
