@@ -43,7 +43,7 @@ $date1 = date('d')*3;
     
 
         <!-- awal navbar -->
-        <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top justify-content-between">
+        <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top justify-content-around">
         <a class="navbar-brand ms-3" href="https://ciwideyfood.com/app/penjualan/index_klip.php">CF App</a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
@@ -52,22 +52,22 @@ $date1 = date('d')*3;
         <div class="collapse navbar-collapse  text-center" id="navbarNav">
             <ul class="navbar-nav">
             <li class="nav-item active">
-                <a class="nav-link" href="https://ciwideyfood.com/app/penjualan/index_klip.php">Invoice</a>
+                <a class="nav-link btn-outline-white" href="https://ciwideyfood.com/app/penjualan/index_klip.php">Invoice</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href=" https://ciwideyfood.com/app/penjualan/order_fix.php">Fix Order</a>
+                <a class="nav-link btn-outline-white" href=" https://ciwideyfood.com/app/penjualan/order_fix.php">Fix Order</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="https://ciwideyfood.com/app/penjualan/data_penjualan_all.php">Complete Invoice</a>
+                <a class="nav-link btn-outline-white" href="https://ciwideyfood.com/app/penjualan/data_penjualan_all.php">Complete Invoice</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="https://ciwideyfood.com/app/penjualan/rekap_harian.php">Daily Packing</a>
+                <a class="nav-link btn-outline-white" href="https://ciwideyfood.com/app/penjualan/rekap_harian.php">Daily Packing</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="https://ciwideyfood.com/app/penjualan/rekap_jual_harian.php">Daily Sales</a>
+                <a class="nav-link btn-outline-white" href="https://ciwideyfood.com/app/penjualan/rekap_jual_harian.php">Daily Sales</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="https://ciwideyfood.com/app/penjualan/list_pelanggan.php">List Member</a>
+                <a class="nav-link btn-outline-white" href="https://ciwideyfood.com/app/penjualan/list_pelanggan.php">List Member</a>
             </li>
             </ul>
         </div>
@@ -121,7 +121,7 @@ $date1 = date('d')*3;
                             if ($data['approve'] != "") {
                                 echo "class='bg-warning'";}?>>
                         <td><?php echo $no++; ?></td>
-                        <td class="text-start fw-bold">
+                        <td class="text-start fw-bold ">
                         
                         
                         <a href="https://ciwideyfood.com/app/penjualan/invoice.php?no_inv=<?php echo $data['no_inv']; ?>">
@@ -196,7 +196,7 @@ $date1 = date('d')*3;
                                 <div class="input-group  mt-3">
 
                                     <a href="https://ciwideyfood.com/app/penjualan/wa.php?no_inv=<?= $data['no_inv'] ?>&massa=<?= $tomas ?>"
-                                        class="btn btn-lg btn-success material-icons me-1 ">send</a>
+                                        class="btn btn-lg btn-success material-icons ">send</a>
     
                                     <a href="https://ciwideyfood.com/app/penjualan/index_klip.php?no_inv=<?= $data['no_inv'] ?>&pembeli=<?= str_replace('RES ', '', str_replace('PAXEL ', '', str_replace('TF ', '', str_replace('COD ', '', $data['pelanggan'])))) ?>&no_hp=<?= $data['no_hp'] ?>&alamat=<?= $data['alamat'] ?>&estimasi=<?= $data['estimasi'] ?>">
                                     
@@ -208,7 +208,6 @@ $date1 = date('d')*3;
 
                                 <?php } ?>
 
-                                <br>
                                     <?php
                                     echo "<div class='bg-dark form-control text-light text-start' style=\"font-size:12px;\">
                                      Massa : " . $tomas . " g<br>" . 
