@@ -28,6 +28,9 @@ $date1 = date('d')*3;
     <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
 
     <link href="DataTables/datatables.min.css" rel="stylesheet">
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
  
  <!-- <script src="DataTables/datatables.min.js"></script> -->
 
@@ -35,11 +38,48 @@ $date1 = date('d')*3;
     <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
     <script src="https://cdn.datatables.net/1.13.4/js/jquery.dataTables.min.js"></script>
 
-    <h3 class=" fixed-top  text-center">Data Penjualan Ciwidey Food <?= $jenis ?></h3>
+    <!-- <h3 class=" fixed-top  text-center">Data Penjualan Ciwidey Food <?= $jenis ?></h3> -->
 
-    <div class="container">
-        <div class=" mt-4">
-            <div class="row">
+    
+
+        <!-- awal navbar -->
+        <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top justify-content-between">
+        <a class="navbar-brand ms-3" href="https://ciwideyfood.com/app/penjualan/index_klip.php">CF App</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse  text-center" id="navbarNav">
+            <ul class="navbar-nav">
+            <li class="nav-item active">
+                <a class="nav-link" href="https://ciwideyfood.com/app/penjualan/index_klip.php">Invoice</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href=" https://ciwideyfood.com/app/penjualan/order_fix.php">Fix Order</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="https://ciwideyfood.com/app/penjualan/data_penjualan_all.php">Complete Invoice</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="https://ciwideyfood.com/app/penjualan/rekap_harian.php">Daily Packing</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="https://ciwideyfood.com/app/penjualan/rekap_jual_harian.php">Daily Sales</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="https://ciwideyfood.com/app/penjualan/list_pelanggan.php">List Member</a>
+            </li>
+            </ul>
+        </div>
+        </nav>
+        <!-- akhir navbar -->
+
+
+        <div class="container">
+
+
+        <div class="" style="padding-top: 60px;">
+            <!-- <div class="row">
                 <div class="col">
                     <div class="mt-2 opacity-75 text-center">
                        <div>
@@ -60,7 +100,7 @@ $date1 = date('d')*3;
                     </div>
                 </div>
             </div>
-            </div>
+            </div> -->
 
             <table id="myTable" class="table table-responsive-sm table-striped display ">
                 <thead>
@@ -101,26 +141,23 @@ $date1 = date('d')*3;
                         ?>
 
                             <br>
-                            <div class="input-group">
+                            <div class="input-group mb-2">
                             <a href="https://ciwideyfood.com/app/penjualan/index_klip.php?no_inv=<?= $data['no_inv'] ?>&pembeli=<?= str_replace('RES ', '', str_replace('PAXEL ', '', str_replace('TF ', '', str_replace('COD ', '', $data['pelanggan'])))) ?>&no_hp=<?= $data['no_hp'] ?>&alamat=<?= $data['alamat'] ?>&estimasi=<?= $data['estimasi'] ?>"
-                                class="btn btn-sm btn-success
-                                 ">Repeat Order</a>
+                                class="btn btn-sm btn-success ">Repeat Order</a>
 
                                     <?php 
                                     if($data['gudang']!='y'){
                                     ?>
-                                    <a href="https://ciwideyfood.com/app/penjualan/pack.php?no_inv=<?= $data['no_inv'] ?>" class="btn btn-sm btn-outline-info ">Packing Hari Ini</a>
+                                    <a href="https://ciwideyfood.com/app/penjualan/pack.php?no_inv=<?= $data['no_inv'] ?>" class="btn btn-sm btn-outline-primary ">Packing Hari Ini</a>
                                     <?php }
                                     else {
                                     ?>
-                                    <a href="https://ciwideyfood.com/app/penjualan/unpack.php?no_inv=<?= $data['no_inv'] ?>" class="btn btn-sm btn-info ">Sudah Packing</a>
+                                    <a href="https://ciwideyfood.com/app/penjualan/unpack.php?no_inv=<?= $data['no_inv'] ?>" class="btn btn-sm btn-primary ">Sudah Packing</a>
                                     <?php } ?>
-                                    </div>
-                              
-
-                                <div class="col-md-3 text-end">
-                                <a href="https://ciwideyfood.com/app/penjualan/tambah_produk.php?no_inv=<?= $data['no_inv'] ?>" class=" btn-sm btn-primary ">+Produk</a>
+                                    
+                                    <a href="https://ciwideyfood.com/app/penjualan/tambah_produk.php?no_inv=<?= $data['no_inv'] ?>" class=" btn-sm btn-primary material-icons ms-3 text-success">add_shopping_cart</a>
                                 </div>
+                           
 
                             <?php
                                 $invoice = $data['no_inv'];
@@ -156,10 +193,10 @@ $date1 = date('d')*3;
                                 ?>
                                 
                                 
-                                <div class="input-group align-middle">
+                                <div class="input-group  mt-3">
 
                                     <a href="https://ciwideyfood.com/app/penjualan/wa.php?no_inv=<?= $data['no_inv'] ?>&massa=<?= $tomas ?>"
-                                        class="btn btn-sm btn-success ">Kirim Wa</a>
+                                        class="btn btn-lg btn-success material-icons me-1 ">send</a>
     
                                     <a href="https://ciwideyfood.com/app/penjualan/index_klip.php?no_inv=<?= $data['no_inv'] ?>&pembeli=<?= str_replace('RES ', '', str_replace('PAXEL ', '', str_replace('TF ', '', str_replace('COD ', '', $data['pelanggan'])))) ?>&no_hp=<?= $data['no_hp'] ?>&alamat=<?= $data['alamat'] ?>&estimasi=<?= $data['estimasi'] ?>">
                                     
@@ -167,8 +204,7 @@ $date1 = date('d')*3;
                                     if ($data['approve'] == "") {
                                     ?>
                                 <a class="btn btn-sm btn-outline-primary "
-                                    href="https://ciwideyfood.com/app/penjualan/fix.php?no_inv=<?php echo $data['no_inv']; ?>">Fix
-                                    Kirim </a>
+                                    href="https://ciwideyfood.com/app/penjualan/fix.php?no_inv=<?php echo $data['no_inv']; ?>">Fix<br>Kirim </a>
 
                                 <?php } ?>
 
